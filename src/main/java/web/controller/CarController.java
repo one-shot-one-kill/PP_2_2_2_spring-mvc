@@ -15,10 +15,8 @@ public class CarController {
     @Autowired
     private CarService carService;
     @GetMapping("/cars")
-    public String printCars(
-            @RequestParam(value = "count", required = false) Integer count,
-            Model model
-    ) {
+    public String printCars(@RequestParam(value = "count", required = false) Integer count,
+            Model model) {
         List<Car> cars = carService.getCarsByLimitedIndex(count);
         model.addAttribute("cars", cars);
 
